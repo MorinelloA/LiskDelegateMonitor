@@ -109,9 +109,15 @@ function populateInactiveDelegateTables(){
 
         var cell1 = row.insertCell(0);
         cell1.innerHTML = (i + 1);
+        
+        var a = document.createElement('a');
+        var linkText = document.createTextNode(delegateInfo[i].username);
+        a.appendChild(linkText);
+        a.title = 'https://explorer.lisk.io/delegate/' + delegateInfo[i].address;
+        a.href = 'https://explorer.lisk.io/delegate/' + delegateInfo[i].address;
 
         var cell2 = row.insertCell(1);
-        cell2.innerHTML = delegateInfo[i].username;
+        cell2.appendChild(a);
 
         var cell3 = row.insertCell(2);
         cell3.innerHTML = Number(delegateInfo[i].voteweight).toLocaleString(
@@ -183,12 +189,16 @@ function populateDelegateTables(){
         var cell1 = row.insertCell(0);
         cell1.innerHTML = (i + 1);
 
+        var a = document.createElement('a');
+        var linkText = document.createTextNode(delegateInfo[i].username);
+        a.appendChild(linkText);
+        a.title = 'https://explorer.lisk.io/delegate/' + delegateInfo[i].address;
+        a.href = 'https://explorer.lisk.io/delegate/' + delegateInfo[i].address;
+
         var cell2 = row.insertCell(1);
-        cell2.innerHTML = delegateInfo[i].username;
+        cell2.appendChild(a);
 
         var cell3 = row.insertCell(2);
-        //cell3.innerHTML = delegateInfo[i].voteweight;
-
         cell3.innerHTML = Number(delegateInfo[i].voteweight).toLocaleString(
             undefined,
             { minimumFractionDigits: 0 }
