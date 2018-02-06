@@ -1,36 +1,18 @@
 <html>
     <head>
         <script src="delegateMonitor.js"></script>
+
+        <link rel="stylesheet" type="text/css"href="delegateMonitor.css">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" >
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    
     </head>
     <body onload="start()">
-        <p>Active Delegates</p>
-        <table id="delegateTable">
-            <tr>
-                <th>Rank</th>
-                <th>Name</th>
-                <th>Vote Weight</th>
-                <th>Produced Blocks</th>
-                <th>Missed Blocks</th>
-                <th>Approval %</th>
-                <th>Productivity %</th>
-                <th>Forged</th>
-                <th>Groups</th>
-            </tr>
-        </table>
-
-        <p>Inactive Delegates (Ranked 102 - 200)</p>
-        <table id="inactiveDelegateTable">
-            <tr>
-                <th>Rank</th>
-                <th>Name</th>
-                <th>Vote Weight</th>
-                <th>Produced Blocks</th>
-                <th>Missed Blocks</th>
-                <th>Approval %</th>
-                <th>Productivity %</th>
-                <th>Forged</th>
-                <th>Groups</th>
-            </tr>
-        </table>
+        <div id="accordion1" class="accordion">
+            <div id="delegateDropdowns" class="card m-b-0"></div>
+        </div>
     </body>
 </html>

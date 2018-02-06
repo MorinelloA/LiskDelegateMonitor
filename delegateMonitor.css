@@ -1,0 +1,75 @@
+body {
+    font-size: 11px !important;
+}
+
+label {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+.accordion {
+    width: 100%;
+    cursor: pointer;
+}
+
+.accordion .card-header{
+    background-color: aqua;
+}
+
+.accordion .card-header.collapsed{
+    background-color: lightblue;
+}
+
+.accordion .card-header:hover{
+    background-color: blue;
+}
+
+.accordion .card-header:after {
+    font-family: "FontAwesome";
+    float: right;
+}
+
+#test {
+    background-color: slategray;
+}
+
+#test:after {
+    content: "";
+}
+
+.rankColumn {
+    width: 5%;
+}
+
+.nameColumn {
+    width: 16%;
+}
+
+.voteWeightColumn {
+    width: 14%;
+}
+
+.producedBlocksColumn {
+    width: 10%;
+}
+
+.missedBlocksColumn {
+    width: 10%;
+}
+
+.approvalColumn {
+    width: 10%;
+}
+
+.productivityColumn {
+    width: 10%;
+}
+
+.forgedColumn {
+    width: 10%;
+}
+
+.groupsColumn {
+    width: 15%;
+}

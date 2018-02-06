@@ -68,7 +68,7 @@ function popIn()
         let inactiveBool = checkInactive();
         if(inactiveBool)
         {
-            populateInactiveDelegateTables();
+            //populateInactiveDelegateTables();
         }
         else{
             popIn();
@@ -164,6 +164,7 @@ function SetAllDelegatesHelper(delegates){
     for(let i=0; i< delegates.delegates.length; i++)
     {
         delegateInfo[i] = {};
+        delegateInfo[i].rank = i + 1;
         delegateInfo[i].username = delegates.delegates[i].username;
         delegateInfo[i].address = delegates.delegates[i].address;
         delegateInfo[i].publicKey = delegates.delegates[i].publicKey;
@@ -181,10 +182,76 @@ function SetAllDelegatesHelper(delegates){
 
 function populateDelegateTables(){
     var delegateTable = document.getElementById("delegateTable");
+    var parentDiv = document.getElementById('delegateDropdowns');
+
+    var d0 = document.createElement("div");
+    //d0.setAttribute("class", "card-header collapsed");
+    d0.setAttribute("class", "card-header");
+    d0.setAttribute("content", "\2213", "important");
+    //d0.setAttribute("data-toggle", "collapse");
+    //d0.setAttribute("data-parent", "#accordion1");
+    //d0.setAttribute("href", "#collapse" + i);
+
+    var a0 = document.createElement("a");
+    a0.setAttribute("class", "card-title");
+
+    var innerDivRank0 = document.createElement("label");
+    innerDivRank0.setAttribute("class", "rankColumn");
+    innerDivRank0.innerHTML = "Rank";
+
+    var innerDivName0 = document.createElement("label");
+    innerDivName0.setAttribute("class", "nameColumn");
+    innerDivName0.innerHTML = "Name";
+
+    var innerDivVoteWeight0 = document.createElement("label");
+    innerDivVoteWeight0.setAttribute("class", "voteWeightColumn");
+    innerDivVoteWeight0.innerHTML = "Vote Weight";
+
+    var innerDivProducedBlocks0 = document.createElement("label");
+    innerDivProducedBlocks0.setAttribute("class", "producedBlocksColumn");
+    innerDivProducedBlocks0.innerHTML = "Produced Blocks";
+
+    var innerDivMissedBlocks0 = document.createElement("label");
+    innerDivMissedBlocks0.setAttribute("class", "missedBlocksColumn");
+    innerDivMissedBlocks0.innerHTML = "Missed Blocks";
+
+    var innerDivApproval0 = document.createElement("label");
+    innerDivApproval0.setAttribute("class", "approvalColumn");
+    innerDivApproval0.innerHTML = "Approval %";
+
+    var innerDivProductivity0 = document.createElement("label");
+    innerDivProductivity0.setAttribute("class", "productivityColumn");
+    innerDivProductivity0.innerHTML = "Productivity %";
+
+    var innerDivForged0 = document.createElement("label");
+    innerDivForged0.setAttribute("class", "forgedColumn");
+    innerDivForged0.innerHTML = "Forged";
+
+    var innerDivGroups0 = document.createElement("label");
+    innerDivGroups0.setAttribute("class", "groupsColumn");
+    innerDivGroups0.innerHTML = "Groups";
+
+    a0.appendChild(innerDivRank0);
+    a0.appendChild(innerDivName0);
+    a0.appendChild(innerDivVoteWeight0);
+    a0.appendChild(innerDivProducedBlocks0);
+    a0.appendChild(innerDivMissedBlocks0);
+    a0.appendChild(innerDivApproval0);
+    a0.appendChild(innerDivProductivity0);
+    a0.appendChild(innerDivForged0);
+    a0.appendChild(innerDivGroups0);
+    d0.appendChild(a0);
+
+    parentDiv.appendChild(d0);
 
     for(var i=0; i<101; i++)
     {
-        let row = delegateTable.insertRow(i + 1);
+        /*let row = delegateTable.insertRow((i * 2));
+        row.setAttribute("data-toggle", "collapse");
+        //row.setAttribute("data-target", "#accordion" + i);
+        row.setAttribute("data-parent", "#delegateTable");
+        row.setAttribute("class", "clickable");
+        row.setAttribute("href", "#collapse" + i);
 
         var cell1 = row.insertCell(0);
         cell1.innerHTML = (i + 1);
@@ -236,6 +303,127 @@ function populateDelegateTables(){
 
         var cell9 = row.insertCell(8);
         cell9.innerHTML = getDelegateGroups(i);
+
+
+        let row2 = delegateTable.insertRow((i * 2) + 1);
+        //row2.setAttribute("colspan", "9");
+
+        //let newTD = row2.insertCell(0);
+        //newTD.setAttribute("colspan", "9");
+        //newTD.setAttribute("height", "0px");
+        //newTD.setAttribute("padding", "0px");
+        //newTD.setAttribute("margin", "0px");
+        //newTD.setAttribute("border", "0px");
+
+        var d1 = document.createElement("td");
+        //d1.setAttribute("id", "accordion" + i);
+        d1.setAttribute("id", "collapse" + i);
+        d1.setAttribute("class", "collapse");
+        d1.setAttribute("colspan", "9", "important");
+        var testText = document.createTextNode("Testing 1.2.3. lkjfl kerfjl krejg lrgho54i ghrkei hjl rkeigjl rjg krjg 4kj ");
+        d1.appendChild(testText);
+
+        //row2.appendChild(d1);
+        //newTD.appendChild(d1);
+        row2.appendChild(d1);
+        */
+        //
+        //
+        //
+        //
+        //
+        
+        //
+        var d1 = document.createElement("div");
+        d1.setAttribute("class", "card-header collapsed test");
+        d1.setAttribute("data-toggle", "collapse");
+        d1.setAttribute("data-parent", "#accordion1");
+        d1.setAttribute("href", "#collapse" + i);
+
+        var a1 = document.createElement("a");
+        a1.setAttribute("class", "card-title");
+
+        var innerDivRank = document.createElement("label");
+        innerDivRank.setAttribute("class", "rankColumn");
+        innerDivRank.innerHTML = delegateInfo[i].rank;
+
+        var innerDivName = document.createElement("label");
+        innerDivName.setAttribute("class", "nameColumn");
+        innerDivName.innerHTML = delegateInfo[i].username;
+
+        var innerDivVoteWeight = document.createElement("label");
+        innerDivVoteWeight.setAttribute("class", "voteWeightColumn");
+        innerDivVoteWeight.innerHTML = Number(delegateInfo[i].voteweight).toLocaleString(
+            undefined,
+            { minimumFractionDigits: 0 }
+        );
+
+        var innerDivProducedBlocks = document.createElement("label");
+        innerDivProducedBlocks.setAttribute("class", "producedBlocksColumn");
+        innerDivProducedBlocks.innerHTML = Number(delegateInfo[i].producedblocks).toLocaleString(
+            undefined,
+            { minimumFractionDigits: 0 }
+        );
+
+        var innerDivMissedBlocks = document.createElement("label");
+        innerDivMissedBlocks.setAttribute("class", "missedBlocksColumn");
+        innerDivMissedBlocks.innerHTML = Number(delegateInfo[i].missedblocks).toLocaleString(
+            undefined,
+            { minimumFractionDigits: 0 }
+        );
+
+        var innerDivApproval = document.createElement("label");
+        innerDivApproval.setAttribute("class", "approvalColumn");
+        innerDivApproval.innerHTML = Number(delegateInfo[i].approval).toLocaleString(
+            undefined,
+            { minimumFractionDigits: 0 }
+        );
+
+        var innerDivProductivity = document.createElement("label");
+        innerDivProductivity.setAttribute("class", "productivityColumn");
+        innerDivProductivity.innerHTML = Number(delegateInfo[i].productivity).toLocaleString(
+            undefined,
+            { minimumFractionDigits: 0 }
+        );
+
+        var innerDivForged = document.createElement("label");
+        innerDivForged.setAttribute("class", "forgedColumn");
+        innerDivForged.innerHTML = Number(delegateInfo[i].forged).toLocaleString(
+            undefined,
+            { minimumFractionDigits: 0 }
+        );
+
+        var innerDivGroups = document.createElement("label");
+        innerDivGroups.setAttribute("class", "groupsColumn");
+        innerDivGroups.innerHTML = getDelegateGroups(i);
+
+        a1.appendChild(innerDivRank);
+        a1.appendChild(innerDivName);
+        a1.appendChild(innerDivVoteWeight);
+        a1.appendChild(innerDivProducedBlocks);
+        a1.appendChild(innerDivMissedBlocks);
+        a1.appendChild(innerDivApproval);
+        a1.appendChild(innerDivProductivity);
+        a1.appendChild(innerDivForged);
+        a1.appendChild(innerDivGroups);
+        d1.appendChild(a1);
+
+        parentDiv.appendChild(d1);
+
+        var d2 = document.createElement("div");
+        d2.setAttribute("class", "card-block collapse");
+        d2.setAttribute("id", "collapse" + i);
+
+        var p1 = document.createElement("p");
+
+        var t = document.createTextNode("blah blah blah blah blah");
+        p1.appendChild(t);
+
+        d2.appendChild(p1);
+
+        parentDiv.appendChild(d2);
+
+        //delegateNum++;  
     }
 }
 
